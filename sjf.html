@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortest Job First</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        #groups{
+            padding: 1px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            position: relative;
+            top: 53%;
+            gap: 5vw;
+        }
+
+        .group{
+            height: 150px;
+            width: 100px;
+            padding: 5px;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            place-items: center;
+            position: relative;
+            transform: translateY(100vh);
+        }
+
+        .group img {
+            height: 45px;
+        
+        }
+
+        .group-hidden{
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @keyframes groupEntry {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes groupExit {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5vh); }
+        }
+    </style>
+</head>
+<body>
+    <div id="btn-container">
+        <button class="button" id="tutorial-button" onclick="document.getElementById('tutorial-container').style.display = 'block'">?</button>
+        <button class="button" id="pause-button">Pause</button>
+    </div>
+    <div class="modal" id="start-screen">
+        <div style="flex-direction: column;" class="modal-content" id="strat-content">
+            <h2>Non-preemptive Alogrithm: <br><h1>Shortest Job First</h1></h2>
+            <button id="start-button">Start Game</button>
+            <p>New Player?</p>
+            <button style="margin: 0;" id="tutorial-button2" onclick="document.getElementById('tutorial-container').style.display = 'block'" >Tutorial</button>
+            <br>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+    <div id="game-container">
+        <div id="level-indicator">Level 1</div>
+        <div id="bus">
+            <img class="busImg" src="source/bus_moving.gif" alt="">
+        </div>
+        <div id="groups"></div>
+        
+    </div>
+
+    <!-- pause menu  -->
+    <div id="pauseModal" class="modal">
+        <div class="modal-content">
+            
+            <h2>Game Paused</h2>
+            <button class="pause-menu-button" id="mute-btn">Mute</button>
+            <button class="pause-menu-button" id="resume-btn">Resume</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+
+    <!-- Game over screen -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <p id="game-over-message">Oh No! Looks Like You Got the Order Wrong</p>
+            <button id="restart-button">Restart Game</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+
+    <!-- next level screen -->
+    <div id="next-level-modal" class="modal">
+        <div class="modal-content">
+            <h2>Level Complete!</h2>
+            <p id="next-level-message">You Got It Right</p>
+            <button id="continue-button">Continue to Next Level</button>
+        </div>
+    </div>
+
+    <!-- bgm -->
+    <audio id="bgm" loop>
+        <source src="source/Pewter_City.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="next-level-sound" src="source/next_level.mp3"></audio>
+    <audio id="game-over-sound" src="source/game_over.mp3"></audio>
+
+    <!-- tutorial Screen -->
+    <div id="tutorial-container">
+        <div class="tutorial-content">
+            <button class="close-button" onclick="document.getElementById('tutorial-container').style.display = 'none'">X</button>
+            <h2>Shortest Job First - Tutorial</h2>
+            <p>
+                You will play as a bus conductor and it is your job to assign the order in which the passengers will board the bus using the logic of the selected algorithm Shortest Job First.
+            </p>
+            <br>
+            <p>
+                The Shortest Job First algorithm assigns the process with the shortest burst time to the CPU first.
+            </p>
+            <br>
+            <img src="source/tutorial_img/sjf_np1.png" alt="image of passenger arriving">
+            <p>In the game, passengers will arrive in Groups. Each group represents a <b>process</b>. And the Amount of passengers in each groups represents the <b>burst time</b> of each process.</p>
+            <br>
+            <br>
+            <img src="source/tutorial_img/sjf_np2.png" alt="image of passenger boarding"></img>
+            <p>Board the group with the <B>least passengers</B> first and so on.</p>
+            
+
+            <button class="close-tutorial" onclick="document.getElementById('tutorial-container').style.display = 'none'">Close</button>
+        </div>
+
+    <script src="sjf.js"></script>
+</body>
+</html>

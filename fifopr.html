@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/pr.css">
+</head>
+<body>
+    <div id="btn-container">
+        <button class="button" id="tutorial-button" onclick="document.getElementById('tutorial-container').style.display = 'block'">?</button>
+        <button class="button" id="pause-button">Pause</button>
+    </div>
+    
+    <div class="modal" id="start-screen">
+        <div style="flex-direction: column;" class="modal-content" id="strat-content">
+            <h2>Page Replacement Alogrithm: <br><h1>First In First Out</h1></h2>
+            <button id="start-button">Start Game</button>
+            <p>New Player?</p>
+            <button style="margin: 0;" id="tutorial-button2" onclick="document.getElementById('tutorial-container').style.display = 'block'" >Tutorial</button>
+            <br>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+    <div id="queueContainer"></div>
+    <div id="frameContainer">
+    </div>
+    <div id="pageContainer"></div>
+
+
+    <!-- pause menu  -->
+    <div id="pauseModal" class="modal">
+        <div class="modal-content">
+            
+            <h2>Game Paused</h2>
+            <button class="pause-menu-button" id="mute-btn">Mute</button>
+            <button class="pause-menu-button" id="resume-btn">Resume</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+
+    <!-- Game over screen -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <p id="game-over-message">Oh No! Looks Like You Got the Order Wrong</p>
+            <button id="restart-button">Restart Game</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+
+    <!-- next level screen -->
+    <div id="next-level-modal" class="modal">
+        <div class="modal-content">
+            <h2>Level Complete!</h2>
+            <p id="next-level-message">You Got It Right</p>
+            <button id="continue-button">Continue to Next Level</button>
+        </div>
+    </div>
+
+    <!-- bgm -->
+    <audio id="bgm" loop>
+        <source src="source/Pewter_City.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="next-level-sound" src="source/next_level.mp3"></audio>
+    <audio id="game-over-sound" src="source/game_over.mp3"></audio>
+
+    <!-- tutorial Screen -->
+    <div id="tutorial-container">
+        <div class="tutorial-content">
+            <button class="close-button" onclick="document.getElementById('tutorial-container').style.display = 'none'">X</button>
+            <h2>FCFS/FIFO - Tutorial</h2>
+            <p>
+                This is a page replacement Puzzle Game. In this version you will be using the First In First Out Alogrithm.
+            </p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr1.png" alt="image of passenger arriving">
+            <p>this is the reference string or Page Queue</p>
+            <br>
+            <br>
+            <img src="source/tutorial_img/fifo_pr2.png" alt="image of passenger boarding"></img>
+            <p>This are the frames</p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr3.png" alt="image of passenger boarding"></img>
+            <p>This is the page that represents the frame above. Click the circle with thier respective number to replace the page.</p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr4.png" alt="image of passenger boarding"></img>
+            <p>This is the page that is to be added into the frame.</p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr5.png" alt="image of passenger boarding"></img>
+            <p>Check if the page already exist in the frame. If the page does not exist, choose a page to replace using the circles below.</p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr6.png" alt="image of passenger boarding"></img>
+            <p>
+                Using FIFO algorithm, the oldest page/the first page to enter the frame will be replaced by the new page. <br>
+                In this example, 3 is the oldest page in the current frame and it will be replaced by 0.
+            </p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr7.png" alt="image of passenger boarding"></img>
+            <p>
+                If the page already exist in the frame, hust click on the page with the same number. <br>
+                In this example, 1 already exit in frame, so click on 1.
+            </p>
+            <br>
+            <img src="source/tutorial_img/fifo_pr8.png" alt="image of passenger boarding"></img>
+            <p>
+                Once the queue finish running, you can go to the next level!
+            </p>
+            <br>
+
+            <button class="close-tutorial" onclick="document.getElementById('tutorial-container').style.display = 'none'">Close</button>
+        </div>
+
+    <script src="fifopr.js"></script>
+</body>
+</html>

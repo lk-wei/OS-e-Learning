@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Come First Serve</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="btn-container">
+        <button class="button" id="tutorial-button" onclick="document.getElementById('tutorial-container').style.display = 'block'">?</button>
+        <button class="button" id="pause-button">Pause</button>
+    </div>
+    
+    <div class="modal" id="start-screen">
+        <div style="flex-direction: column;" class="modal-content" id="strat-content">
+            <h2>Non-preemptive Alogrithm: <br><h1>First Come First Serve</h1></h2>
+            <button id="start-button">Start Game</button>
+            <p>New Player?</p>
+            <button style="margin: 0;" id="tutorial-button2" onclick="document.getElementById('tutorial-container').style.display = 'block'" >Tutorial</button>
+            <br>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+    <div id="game-container">
+        <div id="level-indicator">Level 1</div>
+        <div id="bus">
+            <img class="busImg" src="source/bus_moving.gif" alt="Bus">
+        </div>
+        <div id="passengers"></div>
+    </div>
+
+    <!-- pause menu  -->
+    <div id="pauseModal" class="modal">
+        <div class="modal-content">
+            
+            <h2>Game Paused</h2>
+            <button class="pause-menu-button" id="mute-btn">Mute</button>
+            <button class="pause-menu-button" id="resume-btn">Resume</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+waf 
+    <!-- Game over screen -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <p id="game-over-message">Oh No! Looks Like You Got the Order Wrong</p>
+            <button id="restart-button">Restart Game</button>
+            <button class="pause-menu-button quit-btn" id="quit-btn">Quit</button>
+        </div>
+    </div>
+
+    <!-- next level screen -->
+    <div id="next-level-modal" class="modal">
+        <div class="modal-content">
+            <h2>Level Complete!</h2>
+            <p id="next-level-message">You Got It Right</p>
+            <button id="continue-button">Continue to Next Level</button>
+        </div>
+    </div>
+
+    <!-- bgm -->
+    <audio id="bgm" loop>
+        <source src="source/Pewter_City.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="next-level-sound" src="source/next_level.mp3"></audio>
+    <audio id="game-over-sound" src="source/game_over.mp3"></audio>
+
+    <!-- tutorial Screen -->
+    <div id="tutorial-container">
+        <div class="tutorial-content">
+            <button class="close-button" onclick="document.getElementById('tutorial-container').style.display = 'none'">X</button>
+            <h2>FCFS/FIFO - Tutorial</h2>
+            <p>
+                You will play aas a bus conductor and it is your job to assign the order in which the passengers will board the bus using the logic of the selected algorithm FCFS/FIFO.
+            </p>
+            <br>
+            <img src="source/tutorial_img/fcfs_np1.png" alt="image of passenger arriving">
+            <p>When the game starts <b style="color: #eccc68;">Remember</b> the order which passengers arrive.</p>
+            <br>
+            <br>
+            <img src="source/tutorial_img/fcfs_np2.png" alt="image of passenger boarding"></img>
+            <p>Board the passengers according to their arrival time</p>
+            
+
+            <button class="close-tutorial" onclick="document.getElementById('tutorial-container').style.display = 'none'">Close</button>
+        </div>
+
+    <script src="fcfs.js"></script>
+</body>
+</html>
