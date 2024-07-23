@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: Poppins, sans-serif;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0;
+    position: relative;
+    height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../source/game-doodle.jpg);
+    background-position:center;
+    background-repeat:repeat;
+    opacity: 0.15; 
+    z-index: -1; 
+}
+
+.container {
+    width: 40%; /* Increased width */
+    margin: 0 auto;
+    padding: 40px; /* Increased padding */
+    border: none; /* Removed border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Adjusted opacity */
+}
+
+.profile {
+    width: 100%;
+    text-align: center;
+}
+
+.info, .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.info div {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.info label, .info div span {
+    margin-right: 15px; /* Increased spacing */
+    font-size: 16px; /* Increased font size */
+}
+
+input[type="text"] {
+    margin-bottom: 15px;
+    padding: 10px; /* Increased padding */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Subtle border */
+}
+
+input {
+    font-family: Poppins, sans-serif;
+}
+
+input[type="button"] {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px; /* Increased padding */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Removed border */
+    background-color: #007bff; /* Example button color */
+    color: white; /* Text color */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.buttons {
+    margin-top: 30px; /* Increased top margin */
+}

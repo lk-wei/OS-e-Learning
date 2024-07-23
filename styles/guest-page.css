@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*, **::before, **::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+}
+
+.content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../source/game-doodle.jpg');  
+    background-position:center;
+    background-repeat:repeat;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+
+.content h1 {
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.content button {
+    margin-top: 12px;
+    margin-left: 12px;
+    padding: 20px 20px; 
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #3d64db;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none; 
+}
+
+.content button:hover, .content button:focus {
+    background-image: linear-gradient(to right, #3d64db, #5e7ddb);
+    color: #fff;
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.scroll-indicator {
+    position: absolute;
+    left: 0;
+    right: 0; 
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.scroll-indicator h2{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 2px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down {
+    font-size: 36px;
+    color: #000;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.features {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.game-intro, .leaderboard-intro, .point-system-intro{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 80%;
+    min-height: 400px;
+    margin: 3rem auto;
+    gap: 50px; 
+}
+
+.game-intro h1, .leaderboard-intro h1, .point-system-intro h1{
+    font-size: 64px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.game-intro-text p, .leaderboard-intro-text p, .point-system-intro-text p{
+    word-wrap:break-word;
+    margin-top: 0;
+}
+
+.game-intro img, .leaderboard-intro img, .point-system-intro img{
+    max-width: 80%;
+    min-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.game-intro:nth-child(even), .leaderboard-intro:nth-child(even), .point-system-intro:nth-child(even) {
+    flex-direction: row-reverse; 
+}
+
+@media (min-width: 1200px) {
+    .game-intro, .leaderboard-intro, .point-system-intro {
+        width: 60%; 
+        margin: 4rem auto; 
+    }
+}

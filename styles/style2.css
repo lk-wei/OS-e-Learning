@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    padding-top: 140px;
+    position: relative;
+    height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../source/game-doodle.jpg);
+    background-position:center;
+    background-repeat:repeat;
+    opacity: 0.15; 
+    z-index: -1; 
+}
+
+.container {
+    width: 90%; /* More responsive */
+    max-width: 500px; /* Maximum width */
+    margin: 0 auto;
+    padding: 40px; /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* More subtle shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly less transparent */
+}
+
+.profile {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px; /* Increased margin */
+    font-size: 1.1em; /* Larger font size */
+}
+
+input[type="text"] ,input[type="email"], input[type="password"]{
+    font-family: Poppins, sans-serif;
+    margin-bottom: 15px; /* Increased margin */
+    padding: 10px; /* Increased padding */
+    text-align: center;
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+input[type="submit"], input[type="button"] {
+    font-family: Poppins, sans-serif;
+    margin-top: 15px; /* Increased margin */
+    padding: 10px; /* Increased padding */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

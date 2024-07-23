@@ -1,0 +1,300 @@
+body, html{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #f7f2e8;
+}
+
+#start-screen{
+    display: flex;
+}
+
+#start-button {
+    z-index: 1;
+    border: 4px solid #f4bf98;
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    margin: 3vh;
+}
+
+#start-button:hover {
+    background-color: #f4bf98;
+    border-color: #bc8764;
+}
+
+#btn-container{
+    position: fixed;
+    top: 3vh;
+    right: 3vh;
+    display: flex;
+    gap: 3vh;
+    z-index: 100;
+}
+
+#pause-button, #tutorial-button {
+    margin: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 50px;
+    width: 100px;
+}
+
+
+#tutorial-button {
+    height: 50px;
+    width: 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 100%;
+}
+
+#gameContainer{
+    overflow-x: scroll;
+}
+
+#frameContainer {
+    margin: 5vh 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.frame{
+    border: 5px #bc8764 double;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-Frame{
+    border: 1px red solid;
+}
+
+.framePage{
+    height: 60px;
+    width: 60px;
+    border: 1px #bc8764 solid;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#pageContainer{
+    margin: 5vh 10vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.page{
+    border: 5px #bc8764 solid;
+    background-color: #f4bf98;
+    color: white;
+    width: 15vh;
+    height: 15vh;
+    font-size: 6vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 100%;
+}
+
+.page:hover{
+    background-color: #bc8764;
+    border: 5px solid #f4bf98;
+    color: white;
+
+}
+
+#queueContainer {
+    margin: 20vh 0 0 0;
+    width: 100vw;
+    font-size: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.queueItem{
+    border: 6px #bc8764 double;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#level-indicator {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 100;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #0e213f;
+    color: white;
+    padding: 100px 0;
+    border: 2px solid #fae4c2;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    animation: modalFadeIn 0.5s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.modal-content p {
+    font-size: 18px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #bc8764;
+    border: 4px solid #f4bf98;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #f4bf98;
+    border-color: #bc8764;
+}
+
+button:active {
+    background-color: #ff6348;
+    border-color: #ff4757;
+    transform: scale(0.98);
+}
+
+#tutorial-container{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+.tutorial-content {
+    background-color: #0e213f;
+    color: white;
+    padding: 1% 5vh;
+    border: 2px solid #fae4c2;
+    height: 60%;
+    width: 60%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    animation: modalFadeIn 0.5s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+}
+
+.tutorial-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.tutorial-content::-webkit-scrollbar-track {
+    background: #0e213f;
+    border-radius: 10px;
+    padding: 5px; /* Add padding to the track */
+}
+
+.tutorial-content::-webkit-scrollbar-thumb {
+    background: #fae4c2;
+    border-radius: 5px;
+}
+
+.tutorial-content::-webkit-scrollbar-thumb:hover {
+    background: #ff4757;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tutorial-content h2 {
+    margin-top: 0;
+    font-size: 40px;
+}
+
+.tutorial-content p {
+    font-size: 24px;
+}
+
+.tutorial-content img{
+    max-height: 50%;
+    max-width: 50%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
